@@ -3,14 +3,25 @@
     font-family: 'poppins';
 }
 .story{
+    padding-bottom: 50px;
+    padding-top: 25px;
+    padding-left: 40px;
+    width: 100%;
     background-color: #fdfdcb;
 }
 h1{
     color: #c54c82;
     padding-bottom: 30px;
 }
-p{
-    width: 500px;
+td{
+    width: 50%;
     height: 300px;
     color: #c54c82;
+}
+.image{
+    width: 500px;
+    height: auto;
+    margin-left: auto;
+    margin-right: 30px;
+    display: flex;
 }

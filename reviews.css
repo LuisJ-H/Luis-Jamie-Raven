@@ -1,0 +1,41 @@
+.testimonials{
+    padding-top: 100px;
+    padding-left: 20px;
+    padding-right: 20px;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("restaurantpic.jpg");
+    background-size: cover;
+    height: 100vh;
+    background-attachment: fixed;
+    color: white;
+}
+.testimonials .hr{
+    margin-bottom: 40px;
+    margin-top: 20px;
+}
+.quoterows{
+    display: flex;
+}
+.quote{
+    padding: 2%;
+    font-style: italic;
+    line-height: 145%;
+    position: relative;
+    margin-top: 40px;
+}
+.quote-before{
+    content: "\201c";
+    font-size: 500%;
+    display: block;
+    position: absolute;
+    margin-left: 40px;
+    margin-top: -10px;
+}
+.quoteperson img{
+    height: 40px;
+    border-radius: 40px;
+    margin-left: 30px;
+}
+.quoteperson p{
+    margin-top: -35px;
+    margin-left: 80px;
+}

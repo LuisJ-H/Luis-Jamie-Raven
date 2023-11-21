@@ -10,38 +10,7 @@
     <header id="header">
         
     </header>
-    <form id="loginForm" style="display:none;">
-        <h2>Login</h2>
-        <label for="loginUsername">Username:</label>
-        <input type="text" id="loginUsername" name="loginUsername" required>
 
-        <label for="loginPassword">Password:</label>
-        <input type="password" id="loginPassword" name="loginPassword" required>
-
-        <button type="submit">Login</button>
-
-        <div class="switch-form">
-            <p>Don't have an account? <a href="#" class="signupbtn" onclick="showSignupForm()">Sign up</a></p>
-        </div>
-    </form>
-
-    <form id="signupForm" style="display: none;">
-        <h2>Sign Up</h2>
-        <label for="signupUsername">Username:</label>
-        <input type="text" id="signupUsername" name="signupUsername" required>
-
-        <label for="signupPassword">Password:</label>
-        <input type="password" id="signupPassword" name="signupPassword" required>
-
-        <label for="confirmPassword">Confirm Password:</label>
-        <input type="password" id="confirmPassword" name="confirmPassword" required>
-
-        <button type="submit">Sign Up</button>
-
-        <div class="switch-form">
-            <p>Already have an account? <a href="#" class="loginbtn" onclick="showLoginForm()">Login</a></p>
-        </div>
-    </form>
     <div class="menu" id="menu">
         <h1>Our Menu</h3>
         <img src="riceandbeans.jpg">
@@ -205,7 +174,7 @@
     </div>
     <div class="order" id="order">
         <h2>Ready to order?</h2>
-        <button class="ordernow"><a href="#" onclick="showLoginForm()">Order now!</a></button>
+        <button class="ordernow"><a href="loginpage.html">Order now!</a></button>
     </div>
     <script src="loginpage.js"></script>
     <script src="menu.js"></script>
