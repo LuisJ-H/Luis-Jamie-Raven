@@ -50,3 +50,74 @@ h1{
 .order button:hover{
     background-color: #c54c82;
 }
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,400;1,600;1,800&display=swap');
+*{
+    font-family: 'poppins';
+}
+
+form {
+    margin: 0 30%;
+    position: relative;
+    background-color: #f4aeba;
+    color: #000; 
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 500px;
+    text-align: center;
+}
+
+h2 {
+    color: #ec729c;
+}
+
+label {
+    display: block;
+    margin: 10px 0 5px;
+}
+
+input {
+
+    width: 100%;
+    padding: 8px;
+    margin: 5px 0 10px;
+    box-sizing: border-box;
+    outline: none;
+}
+
+button {
+    background-color: #ec729c;
+    color: #fff; /* white */
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #c54c82;
+}
+
+.switch-form {
+    margin-top: 15px;
+}
+
+.ordernow{
+    margin-top: 20px;
+}
+button a {
+    color: white;
+}
+
+a{
+    color: #ec729c;
+}
+
+.loginbtn, .signupbtn{
+    color: #c54c82;
+}
+
+.loginbtn, .signupbtn:hover{
+    border-bottom: 2px solid #c54c82;
+}
