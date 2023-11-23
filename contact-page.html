@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Contact Page</title>
+</head>
+<body>
+
+<header> 
+
+</header>
+  
+  <div class="number">
+<h1> Contact Us</h1> 
+<p> chat online:</p>
+<a href="http://127.0.0.1:3000/Users/raveningrave/final project/chatbot.html"><button class="help">get help</button></a>
+<p>phone number:</p>
+<a class="a" href="#" style="color: palevioletred;"> <p class="limk">+1 717 365 2190</p></a>
+  </div>
+  <div class="box">
+    <form action="submit_form.php" method="post">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="message">Message:</label>
+      <textarea id="message" name="message" rows="4" required></textarea>
+
+      <input type="submit" value="Submit">
+    </form>
+  </div>
+
+  <div class="faq-container">
+<h3>common FAQ's</h3>
+    <div class="faq-question" onclick="toggleAnswer('answer1')">At what times are we open? </div>
+    <div class="faq-answer" id="answer1">All our locations are open from 8am to 8pm all weekdays and 10 am to 10pm on weekends.</div>
+
+    
+    <div class="faq-question" onclick="toggleAnswer('answer2')">how can i order off the website</div>
+    <div class="faq-answer" id="answer2">You can reach our customer support team for further question otherwise.log in on the main page, click on menu, send to cart and check out.simple :)</div>
+
+    <div class="faq-question" onclick="toggleAnswer('answer3')">What happens to my order?</div>
+    <div class="faq-answer" id="answer3">pick a place near you for pick up or order delivery.</div>
+
+   
+</div>
+<script src="faq.js"></script>
+<script src="header.js"></script>
+</body>
+</html>
