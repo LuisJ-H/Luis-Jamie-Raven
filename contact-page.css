@@ -1,0 +1,164 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #c54c82;
+    margin: 0;
+    padding: 0;
+font-family: 'poppins';
+}
+table{
+    width: 100%;
+}
+table td{
+    border-bottom: 2px dotted grey;
+    text-align: left;
+    padding: 10px;
+}
+table th{
+    font-size: 30px;
+}
+h1{
+    padding-top: 20px;
+    color: #f4aeba;
+    text-shadow: 2px 2px#c54c82;
+    font-size: 40px;
+
+}
+.food{
+    width: 100%;
+}
+.order{
+    background-color: #fdfdcb;
+    color: #f4aeba;
+    text-shadow: 2px 2px#c54c82;
+    text-align: center;
+    padding: 15px;
+}
+.order button{
+    background-color: #ec729c;
+    padding: 10px 20px;
+    cursor: pointer;
+    border: none;
+}
+.order button:hover{
+    background-color: #c54c82;
+}
+
+.box, .number {
+    
+    margin: 300px auto ;
+    background-color: #fdfdcb;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+
+}
+h1
+{
+    border-bottom: black solid;
+}
+a p
+{
+    margin-top: -100px;
+    
+}
+.phone
+{
+    width: 100px;
+    display: flex;
+    margin-left: 300px;
+    margin-top: -90px;
+}
+.box, .number {
+    flex: 1;
+    padding: 20px;
+   
+}
+
+.box {
+   max-width: 100%;
+   margin-bottom: -100px;
+   background-color: white;
+}
+
+.number {
+background-color: #fdfdcb;
+    margin-bottom: -300px;
+   margin-top: 10px;
+}
+form {
+    display: grid;
+    grid-gap: 10px;
+    
+}
+
+label {
+    font-weight: bold;
+}
+
+p
+{
+    padding-bottom: 100px;
+   
+}
+input,
+textarea {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #fffdfd;
+    border-radius: 4px;
+    background-color: rgb(241, 240, 240);
+}
+
+input[type="submit"] {
+    background-color: #ec729c;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+}
+
+input[type="submit"]:hover {
+    background-color: #fdfdcb;
+    color: black;
+}
+button, .help
+{
+    
+   padding: 5px;
+   margin-top: -145px;
+   display: flex;
+   margin-left: 100px;
+   background-color: #ec729c;
+}
+footer {
+    background-color: #fdfdcb; 
+    text-align: center;
+    padding: 10px;
+}
+.faq-container {
+    width: 100%;
+   margin-top: 100px;
+}
+.faq-container h3
+{
+    color: #fdfdcb;
+}
+.faq-question {
+    background-color: #f0f0f0;
+    padding: 10px;
+    cursor: pointer;
+    border: 1px solid #ddd;
+    text-align: left;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.faq-answer {
+    display: none;
+    padding: 10px;
+    border-top: 1px solid #ddd;
+    background-color: white;
+}
