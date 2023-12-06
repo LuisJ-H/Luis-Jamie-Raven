@@ -33,8 +33,8 @@ function displayItems(){
         star.setAttribute('id','rating');
         star.innerText= ' ' + item.rating;
         
-        let heart= document.createElement('ion-icon');
-        heart.setAttribute('class','heart-outline');
+        let heart= document.createElement('i');
+        heart.setAttribute('class','bi bi-suit-heart');
         heart.setAttribute('id',item.id)
 
         cardTop.appendChild(star);
@@ -78,8 +78,8 @@ function displayItems(){
         star.setAttribute('id','rating');
         star.innerText= ' ' + item.rating;
 
-        let heart= document.createElement('ion-icon');
-        heart.setAttribute('class','heart-outline');
+        let heart= document.createElement('i');
+        heart.setAttribute('class','bi bi-suit-heart');
         heart.setAttribute('id',item.id)
 
         cardTop.appendChild(star);
@@ -123,8 +123,8 @@ function displayItems(){
         star.setAttribute('id','rating');
         star.innerText= ' ' + item.rating;
 
-        let heart= document.createElement('ion-icon');
-        heart.setAttribute('class','heart-outline');
+        let heart= document.createElement('i');
+        heart.setAttribute('class','bi bi-suit-heart');
         heart.setAttribute('id',item.id)
 
         cardTop.appendChild(star);
@@ -168,8 +168,8 @@ function displayItems(){
         star.setAttribute('id','rating');
         star.innerText= ' ' + item.rating;
 
-        let heart= document.createElement('ion-icon');
-        heart.setAttribute('class','heart-outline');
+        let heart= document.createElement('i');
+        heart.setAttribute('class','bi bi-suit-heart');
         heart.setAttribute('id',item.id)
 
         cardTop.appendChild(star);
@@ -213,10 +213,11 @@ function displayItems(){
         star.setAttribute('id','rating');
         star.innerText= ' ' + item.rating;
 
-        let heart= document.createElement('ion-icon');
-        heart.setAttribute('class','heart-outline');
-        heart.setAttribute('id',item.id)
+        let heart= document.createElement('i');
+        heart.setAttribute('class','bi bi-suit-heart');
+        heart.setAttribute('id',item.id);
 
+        // let cardTopImg 
 
         cardTop.appendChild(star);
         cardTop.appendChild(heart);
@@ -237,7 +238,6 @@ function displayItems(){
         cardContainer.appendChild(itemName);
         cardContainer.appendChild(itemPrice);
         
-        
         drinks.appendChild(cardContainer);
         
     })
@@ -245,13 +245,3 @@ function displayItems(){
 displayItems();
 
 
-
-
-// Heart toggle 
-function toggleFavorite() {
-    let favoriteIcon = document.getElementById('favorite');
-
-    favoriteIcon.name = (favoriteIcon.name === 'heart-outline') ? 'heart' : 'heart-outline';
-
-    favoriteIcon.classList.toggle('red-heart', favoriteIcon.name === 'heart');
-}
