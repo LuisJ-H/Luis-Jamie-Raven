@@ -244,4 +244,69 @@ function displayItems(){
 }
 displayItems();
 
+const cartContainer = document.querySelector('.cart-container');
+const checkoutBtn = document.getElementById('checkoutBtn');
+const itemsCount = document.getElementById('items');
+const totalAmount = document.getElementById('total-amount');
 
+let cart = [];
+
+// Function to render items in the cart
+function renderCart() {
+    cartContainer.innerHTML = '';
+
+    cart.forEach(item => {
+        const cartRow = document.createElement('div');
+        cartRow.classList.add('card-row');
+
+        // Build your cartRow HTML structure here, similar to your existing HTML
+
+        cartContainer.appendChild(cartRow);
+    });
+
+    updateTotal();
+}
+
+// Function to update the total amount and items count
+function updateTotal() {
+    const total = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
+    const itemCount = cart.reduce((acc, item) => acc + item.quantity, 0);
+
+    totalAmount.textContent = `$${total.toFixed(2)}`;
+    itemsCount.textContent = `${itemCount} ${itemCount === 1 ? 'item' : 'items'}`;
+}
+
+// Function to handle the "Remove" button click
+function removeFromCart(itemId) {
+    cart = cart.filter(item => item.id !== itemId);
+    renderCart();
+}
+
+// Add event listener for checkout button
+checkoutBtn.addEventListener('click', function () {
+    // Implement your checkout logic here
+    // You can send the cart data to a server, process payment, etc.
+    alert('Thank you for youre purchase!');
+});
+
+// Add event listener to handle "Remove" button clicks
+cartContainer.addEventListener('click', function (event) {
+    if (event.target.id === 'remove') {
+        const itemId = parseInt(event.target.dataset.itemId);
+        removeFromCart(itemId);
+    }
+});
+
+// Initialize the cart with some default items
+cart = [
+    {
+        id: 3,
+        name: 'Moro',
+        price: 11.93,
+        quantity: 2
+    },
+    // Add more default items if needed
+];
+
+// Render the initial cart
+renderCart();
