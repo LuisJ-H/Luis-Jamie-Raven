@@ -24,7 +24,10 @@ function displayItems(){
         let cardImg= document.createElement('div');
         cardImg.setAttribute('id','card-img');
 
+
         let img= document.createElement('img');
+        // img.setAttribute('class', 'add-to-cart');
+        // img.setAttribute('id', item.id)
         img.src=item.img;
         
         
@@ -34,7 +37,7 @@ function displayItems(){
         star.innerText= ' ' + item.rating;
         
         let heart= document.createElement('i');
-        heart.setAttribute('class','bi bi-suit-heart');
+        heart.setAttribute('class','bi bi-suit-heart add-to-cart');
         heart.setAttribute('id',item.id)
 
         cardTop.appendChild(star);
@@ -71,7 +74,10 @@ function displayItems(){
         cardImg.setAttribute('id', 'card-img');
 
         let img= document.createElement('img');
+        // img.setAttribute('class', 'add-to-cart');
+        // img.setAttribute('id', item.id)
         img.src=item.img;
+
 
         let star= document.createElement('i');
         star.setAttribute('class','bi bi-star-fill');
@@ -79,7 +85,7 @@ function displayItems(){
         star.innerText= ' ' + item.rating;
 
         let heart= document.createElement('i');
-        heart.setAttribute('class','bi bi-suit-heart');
+        heart.setAttribute('class','bi bi-suit-heart add-to-cart');
         heart.setAttribute('id',item.id)
 
         cardTop.appendChild(star);
@@ -116,7 +122,10 @@ function displayItems(){
         cardImg.setAttribute('id', 'card-img');
 
         let img= document.createElement('img');
+        // img.setAttribute('class', 'add-to-cart');
+        // img.setAttribute('id', item.id)
         img.src=item.img;
+
 
         let star= document.createElement('i');
         star.setAttribute('class','bi bi-star-fill');
@@ -124,7 +133,7 @@ function displayItems(){
         star.innerText= ' ' + item.rating;
 
         let heart= document.createElement('i');
-        heart.setAttribute('class','bi bi-suit-heart');
+        heart.setAttribute('class','bi bi-suit-heart add-to-cart');
         heart.setAttribute('id',item.id)
 
         cardTop.appendChild(star);
@@ -161,7 +170,10 @@ function displayItems(){
         cardImg.setAttribute('id', 'card-img');
 
         let img= document.createElement('img');
+        // img.setAttribute('class', 'add-to-cart');
+        // img.setAttribute('id', item.id)
         img.src=item.img;
+
 
         let star= document.createElement('i');
         star.setAttribute('class','bi bi-star-fill');
@@ -169,7 +181,7 @@ function displayItems(){
         star.innerText= ' ' + item.rating;
 
         let heart= document.createElement('i');
-        heart.setAttribute('class','bi bi-suit-heart');
+        heart.setAttribute('class','bi bi-suit-heart add-to-cart');
         heart.setAttribute('id',item.id)
 
         cardTop.appendChild(star);
@@ -206,7 +218,10 @@ function displayItems(){
         cardImg.setAttribute('id', 'card-img');
         
         let img= document.createElement('img');
+        // img.setAttribute('class', 'add-to-cart');
+        // img.setAttribute('id', item.id)
         img.src=item.img;
+
 
         let star= document.createElement('i');
         star.setAttribute('class','bi bi-star-fill');
@@ -214,7 +229,7 @@ function displayItems(){
         star.innerText= ' ' + item.rating;
 
         let heart= document.createElement('i');
-        heart.setAttribute('class','bi bi-suit-heart');
+        heart.setAttribute('class','bi bi-suit-heart add-to-cart');
         heart.setAttribute('id',item.id);
 
         // let cardTopImg 
@@ -244,69 +259,199 @@ function displayItems(){
 }
 displayItems();
 
-const cartContainer = document.querySelector('.cart-container');
-const checkoutBtn = document.getElementById('checkoutBtn');
-const itemsCount = document.getElementById('items');
-const totalAmount = document.getElementById('total-amount');
+const categoryListData= [...new Map(foodItem.map(item=> [item['category'],item])).values()];
+console.log(categoryListData);
 
-let cart = [];
+function selectTaste(){
+    let categoryList= document.getElementById('category-list');
 
-// Function to render items in the cart
-function renderCart() {
-    cartContainer.innerHTML = '';
+    categoryListData.map(item=>{
+        console.log(item)
+        let listCard= document.createElement('div');
+        listCard.setAttribute('class','list-card');
+    
+        let listImg= document.createElement('img');
+        listImg.src= item.img;
+    
+        let listName= document.createElement('a');
+        listName.setAttribute('class','list-name');
+        listName.innerText= item.category;
+        listName.setAttribute('href','#'+item.category)
+    
+        listCard.appendChild(listImg);
+        listCard.appendChild(listName);
 
-    cart.forEach(item => {
-        const cartRow = document.createElement('div');
-        cartRow.classList.add('card-row');
-
-        // Build your cartRow HTML structure here, similar to your existing HTML
-
-        cartContainer.appendChild(cartRow);
-    });
-
-    updateTotal();
+        let cloneListCard= listCard.cloneNode(true);
+        categoryList.appendChild(listCard);
+    })
 }
+selectTaste();
 
-// Function to update the total amount and items count
-function updateTotal() {
-    const total = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
-    const itemCount = cart.reduce((acc, item) => acc + item.quantity, 0);
 
-    totalAmount.textContent = `$${total.toFixed(2)}`;
-    itemsCount.textContent = `${itemCount} ${itemCount === 1 ? 'item' : 'items'}`;
-}
+document.querySelectorAll('.add-to-cart').forEach(item=>{
+    item.addEventListener('click',addToCart)
+})
 
-// Function to handle the "Remove" button click
-function removeFromCart(itemId) {
-    cart = cart.filter(item => item.id !== itemId);
-    renderCart();
-}
+let cartData= [];
+function addToCart(){
+    
+    let itemToAdd= this.parentNode.nextSibling.nextSibling.innerText;
+    let itemObj= foodItem.find(element=>element.name==itemToAdd);
 
-// Add event listener for checkout button
-checkoutBtn.addEventListener('click', function () {
-    // Implement your checkout logic here
-    // You can send the cart data to a server, process payment, etc.
-    alert('Thank you for youre purchase!');
-});
-
-// Add event listener to handle "Remove" button clicks
-cartContainer.addEventListener('click', function (event) {
-    if (event.target.id === 'remove') {
-        const itemId = parseInt(event.target.dataset.itemId);
-        removeFromCart(itemId);
+    let index= cartData.indexOf(itemObj);
+    if(index=== -1){
+        document.getElementById(itemObj.id).classList.add('toggle-heart');
+        cartData= [...cartData,itemObj];
     }
-});
+    else if(index > -1){
+        alert("Added to cart!");
+    }
+    
+    document.getElementById('cart-plus').innerText=
+    ' ' + cartData.length + ' Items';
+    totalAmount();
+    cartItems();
+}
 
-// Initialize the cart with some default items
-cart = [
-    {
-        id: 3,
-        name: 'Moro',
-        price: 11.93,
-        quantity: 2
-    },
-    // Add more default items if needed
-];
 
-// Render the initial cart
-renderCart();
+function cartItems(){
+    let tableBody=  document.getElementById('table-body');
+    tableBody.innerHTML= '';
+
+    cartData.map(item=> {
+        let tableRow= document.createElement('tr');
+        
+        let rowData1= document.createElement('td');
+        let img= document.createElement('img');
+        img.src= item.img;
+        rowData1.appendChild(img);
+    
+        let rowData2= document.createElement('td');
+        rowData2.innerText= item.name;
+        
+        let rowData3= document.createElement('td');
+        let btn1= document.createElement('button');
+        btn1.setAttribute('class','decrease-item');
+        btn1.innerText= '-';
+        let span= document.createElement('span');
+        span.innerText= item.quantity;
+        let btn2= document.createElement('button');
+        btn2.setAttribute('class','increase-item');
+        btn2.innerText= '+';
+        
+        rowData3.appendChild(btn1);
+        rowData3.appendChild(span);
+        rowData3.appendChild(btn2);
+    
+        let rowData4= document.createElement('td');
+        rowData4.innerText= item.price;
+    
+        tableRow.appendChild(rowData1);
+        tableRow.appendChild(rowData2);
+        tableRow.appendChild(rowData3);
+        tableRow.appendChild(rowData4);
+    
+        tableBody.appendChild(tableRow);
+    })
+    document.querySelectorAll('.increase-item').forEach(item=>{
+        item.addEventListener('click',incrementItem)
+    })
+
+    document.querySelectorAll('.decrease-item').forEach(item=>{
+        item.addEventListener('click',decrementItem)
+    })
+}
+
+
+function incrementItem(){
+    let itemToInc= this.parentNode.previousSibling.innerText;
+    console.log(itemToInc)
+    let incObj= cartData.find(element=>element.name==itemToInc);
+    incObj.quantity+=1;
+    
+    currPrice= (incObj.price*incObj.quantity - incObj.price*(incObj.quantity-1))/(incObj.quantity-1);
+    incObj.price= currPrice*incObj.quantity;
+    totalAmount()
+    cartItems();
+}
+
+let currPrice= 0;
+function decrementItem(){
+    let itemToInc= this.parentNode.previousSibling.innerText;
+    let decObj= cartData.find(element=>element.name==itemToInc);
+    let ind= cartData.indexOf(decObj);
+    if(decObj.quantity >1){
+        currPrice= (decObj.price*decObj.quantity - decObj.price*(decObj.quantity-1))/(decObj.quantity);
+        decObj.quantity-= 1;
+        decObj.price= currPrice*decObj.quantity;
+    }
+    else{
+        document.getElementById(decObj.id).classList.remove('toggle-heart')
+        cartData.splice(ind,1);
+        document.getElementById('cart-plus').innerText= ' ' + cartData.length + ' Items';
+        if(cartData.length < 1 && flag){
+            document.getElementById('food-items').classList.toggle('food-items');
+            document.getElementById('category-list').classList.toggle('food-items');
+            document.getElementById('cart-page').classList.toggle('cart-toggle');
+            document.getElementById('checkout').classList.toggle('cart-toggle');
+            flag= false;
+            alert("Currently no item in cart!");
+            console.log(flag)
+        }
+    }
+    totalAmount()
+    cartItems()
+}
+
+function totalAmount(){
+    let sum=0;
+    cartData.map(item=>{
+        sum+= item.price;
+    })
+    document.getElementById('total-item').innerText= 'Total Item : ' + cartData.length;
+    document.getElementById('total-price').innerText= 'Total Price : $ ' + sum;
+    document.getElementById('m-total-amount').innerText= 'Total Price : $ ' + sum;
+}
+
+document.getElementById('cart-plus').addEventListener('click',cartToggle);
+
+let flag= false;
+function cartToggle(){
+    if(cartData.length > 0){
+        document.getElementById('food-items').classList.toggle('food-items');
+        document.getElementById('category-list').classList.toggle('food-items');
+        document.getElementById('cart-page').classList.toggle('cart-toggle');
+        document.getElementById('checkout').classList.toggle('cart-toggle');
+        flag= true;
+        console.log(flag)
+    }
+    else{
+        alert("Currently no item in cart!");
+    }
+}
+
+function addEvents(){
+    document.querySelectorAll('.add-to-cart').forEach(item=>{
+        item.addEventListener('click',addToCart)
+    });
+    document.querySelectorAll('.increase-item').forEach(item=>{
+        item.addEventListener('click',incrementItem)
+    })
+
+    document.querySelectorAll('.decrease-item').forEach(item=>{
+        item.addEventListener('click',decrementItem)
+    })
+}
+
+document.getElementById('add-address').addEventListener('click',addAddress);
+
+
+function addAddress(){
+    let address= prompt('Enter your address','');
+    if(address){
+        document.getElementById('add-address').innerText= ' ' + address;
+    }
+    else{
+        alert("Address not added")
+    }
+}
