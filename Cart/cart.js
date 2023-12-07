@@ -447,11 +447,11 @@ document.getElementById('add-address').addEventListener('click',addAddress);
 
 
 function addAddress(){
-    let address= prompt('Enter your address','');
+    let address= prompt('Enter your name','');
     if(address){
         document.getElementById('add-address').innerText= ' ' + address;
     }
     else{
-        alert("Address not added")
+        alert("Name not added")
     }
 }
