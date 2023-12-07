@@ -25,6 +25,8 @@ body {
 .order-title {
     text-align: center;
     margin-top: 10px;
+    color: #ec729c;
+    font-size: 46px;
 }
 
 #header{
@@ -185,8 +187,9 @@ body {
 }
 
 .toggle-heart {
-    background: orangered;
-    color: white;
+    color: red;
+
+
 }
 
 
@@ -277,7 +280,7 @@ body {
 
 
 /* Cart */
-}
+
 #cart-page{
     background: white;
     margin: 40px 10px;
@@ -289,10 +292,10 @@ body {
 #cart-title{
     font-size: 35px;
     margin: 0;
-    color: indianred;
+    color: #ec729c;
 }
 #cart-page table{
-    width: 100%;
+    /* width: 100%; */
     margin-top: 20px;
     text-align: center;
 }
@@ -304,7 +307,7 @@ body {
 .cart-btn{
     outline: none;
     border: none;
-    background: crimson;
+    background: #ec729c;
     color: white;
     padding: 10px 25px;
     border-radius: 20px;
@@ -347,7 +350,7 @@ body {
 }
 #total-price,#total-item{
     font-size: 25px;
-    color: indianred;
+    color: #ec729c;
 }
 #delievery{
     font-size: 20px;
@@ -363,7 +366,7 @@ body {
     margin: 0;
     font-size: 30px;
     margin-top: 40px;
-    color: indianred;
+    color: #ec729c;
     background: whitesmoke;
     
 }
