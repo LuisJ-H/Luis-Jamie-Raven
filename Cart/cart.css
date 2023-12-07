@@ -368,11 +368,16 @@ body {
 
 .item-menu{
     margin: 0;
+    margin-left: 20px;
     font-size: 30px;
     margin-top: 40px;
     color: #ec729c;
     background: whitesmoke;
     
+}
+
+.bord {
+    margin-left: 20px;
 }
 .list-card{
     display: flex;
